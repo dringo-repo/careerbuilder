@@ -9,3 +9,9 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 end
+
+VCR.confiure do |config|
+  config.cassette_library_dir = "spec/fixtures/cassettes"
+  config.hook_into :web_mock
+  config.default_cassette_options = { record: :once }
+end
