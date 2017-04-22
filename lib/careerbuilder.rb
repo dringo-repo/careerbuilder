@@ -4,6 +4,9 @@ require "careerbuilder/utils/request"
 require "careerbuilder/version"
 require "careerbuilder/job"
 
+require "json"
+require "httparty"
+
 module Careerbuilder
   class << self
     attr_accessor :configuration
