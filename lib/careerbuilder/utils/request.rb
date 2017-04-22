@@ -9,7 +9,7 @@ module Careerbuilder
         params.each{|key,value| query << "#{key}=#{value}&"}
 
         # get call on REST API
-        base_url = 'http://api.apicast.io/search?'
+        base_url = 'http://api.appcast.io/search?'
         response = HTTParty.get(base_url + query)
 
         # parse data

@@ -1,7 +1,7 @@
 require_relative '../../spec_helper'
 
 describe Careerbuilder::Utils::Request do
-  let(:base_url) { 'http://api.apicast.io/search?' }
+  let(:base_url) { 'http://api.appcast.io/search?' }
   let(:params) { {test: 123} }
   let(:query) { "test=123&" }
   let(:api_token) { "#{Careerbuilder.configuration.api_token}" }
