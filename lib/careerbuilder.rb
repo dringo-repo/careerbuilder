@@ -1,6 +1,8 @@
 require "careerbuilder/configuration"
 require 'careerbuilder/errors/configuration'
+require "careerbuilder/utils/request"
 require "careerbuilder/version"
+require "careerbuilder/job"
 
 module Careerbuilder
   class << self

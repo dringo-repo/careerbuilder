@@ -1,6 +1,6 @@
 require_relative '../spec_helper'
 
-describe Careerbuilder::Client::Job do
+describe Careerbuilder::Job do
   let(:url) { 'example' }
   let(:api_token) do
     "#{Careerbuilder.configuration.api_token}"
