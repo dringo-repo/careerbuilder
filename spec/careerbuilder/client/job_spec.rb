@@ -1,10 +1,19 @@
 require_relative '../spec_helper'
 
-
 describe Careerbuilder::Client::Job do
-  # initialize
+  let(:url) { 'example' }
+  let(:api_token) do
+    "#{Careerbuilder.configuration.api_token}"
+  end
 
-  # search
+  context '.search' do
+    it 'succeeds'
+    it 'returns an array'
+  end
 
-  # find
+  context '.find' do
+    it 'succeeds'
+    it 'returns a job if found'
+    it 'returns a nil if not found'
+  end
 end
