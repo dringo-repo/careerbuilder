@@ -1,4 +1,4 @@
-# Careerbuilder (WIP)
+# Careerbuilder
 
 You can apply to be a CareerBuilder Partner at http://developer.careerbuilder.com/partner_messages/new. Once you are a partner you will receive an API token and can start using this gem.
 
@@ -32,9 +32,117 @@ Careerbuilder.configure do |config|
 end
 ```
 
-## Usage
+## Job Search
 
-TODO: Write usage instructions here
+You can search for a list of jobs
+
+```ruby
+jobs = Careerbuilder::Job.search({location: 'San Jose'})
+```
+
+or a specific job
+
+```ruby
+job = Careerbuilder::Job.find('any-old-id')
+```
+
+## Job Search params
+
+If you want to perform a job search with multiple parameters you can supply them in a hash like so:
+
+```ruby
+search_params = { location: 'San Jose', keyword: 'Database Admin' }
+Careerbuilder::Job.search(search_params)
+```
+
+### Available Parameters
+- `keyword` - for general search (will return jobs with matches in title, body and location (`country`, `state`, `city` and `zip`) fields)
+- `title`
+- `employer`
+- `body`
+- `country`
+- `state`
+- `city`
+- `zip`
+- `function` – see list of supported functions
+- `posted_at` (`yyyy-mm-dd` format)
+- `job_id`
+- `location` - for search in `country`, `state`, `city` and `zip` fields
+
+### Supported Functions
+- Accounting
+- Admin/Clerical
+- Advertising/Public Relations
+- Automotive
+- Aviation
+- Banking
+- Biotechnology/Pharmaceutical
+- Building/Facilities
+- Business Opportunity
+- Childcare
+- Communications/Media/Writers
+- Construction/Trades
+- Consultant
+- Customer Service
+- Education
+- Emergency/Fire
+- Engineering
+- Executive
+- Government - Military
+- Healthcare
+- Healthcare - Allied Health
+- Healthcare - Nursing
+- Healthcare - Physicians
+- Hospitality
+- Design
+- Finance
+- Hourly
+- HR
+- Insurance
+- Journalism
+- Law Enforcement
+- Legal
+- Manufacturing/Production
+- Marketing
+- Non-Profit
+- Oil/Energy/Power
+- Real Estate
+- Restaurant
+- Retail
+- Salon/Beauty/Fitness
+- Sales
+- Science
+- Security
+- Social Services
+- Supply Chain/Logistics
+- Technology
+- Telecommunications
+- Transportation
+- Travel/Tourism
+- Vet/Animal Services
+
+## Job Details
+
+After you have performed a search you can access the data attributes like so:
+
+```ruby
+CareerBuilder::Job.search({ location: 'San Jose' }).each do |job|
+  puts "Job Details: #{job.data[:employer}} - #{job.data[:title]}"
+end
+```
+
+The following data attributes are available from a job
+
+- `title`
+- `employer`
+- `body`
+- `posted_at`
+- `url`
+- `function`
+- `job_id`
+- `advertiser_id`,
+- `location` (`country`, `state`, `city`, `zip`)
+- `search_position` - job's # in response
 
 ## Development
 
