@@ -1,4 +1,5 @@
 require "careerbuilder/configuration"
+require 'careerbuilder/errors/configuration'
 require "careerbuilder/version"
 
 module Careerbuilder
@@ -6,7 +7,7 @@ module Careerbuilder
     attr_accessor :configuration
   end
 
-  def configuration
+  def self.configuration
     @configuration ||= Configuration.new
   end
 
