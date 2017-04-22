@@ -1,8 +1,6 @@
 # Careerbuilder
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/careerbuilder`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+You can apply to be a CareerBuilder Partner at http://developer.careerbuilder.com/partner_messages/new. Once you are a partner you will receive an API token and can start using this gem.
 
 ## Installation
 
@@ -14,11 +12,25 @@ gem 'careerbuilder'
 
 And then execute:
 
-    $ bundle
+```
+$ bundle
+```
 
 Or install it yourself as:
 
-    $ gem install careerbuilder
+```
+$ gem install careerbuilder
+```
+
+## Configuration
+
+Set your API token, and any other configuration settings in a place that will run prior to your API calls.
+
+```ruby
+Careerbuilder.configure do |config|
+  config.api_token = 'your-api-token-goes-here'
+end
+```
 
 ## Usage
 
@@ -38,4 +50,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
