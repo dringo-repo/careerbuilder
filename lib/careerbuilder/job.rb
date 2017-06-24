@@ -19,7 +19,7 @@ module Careerbuilder
     def self.find(id)
       results = Careerbuilder::Utils::Request.get({job_id: id})
 
-      if results[:job_count] && results[:job_count] > 0
+      if results[:jobs_count] && results[:jobs_count] > 0
         job = Careerbuilder::Job.new
         job.data = results[:jobs][0]
       else
