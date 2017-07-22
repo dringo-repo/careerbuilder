@@ -9,20 +9,30 @@ module Careerbuilder
     def self.search(params)
       results = Careerbuilder::Utils::Request.get(params)
 
-      results[:jobs].map do |data|
-        job = Careerbuilder::Job.new
-        job.data = data
-        job
+      unless results[:error] do
+        jobs = results[:jobs].map do |data|
+          job = Careerbuilder::Job.new
+          job.data = data
+          job
+        end
+      else
+        puts results[:error]
+        jobs = []
       end
     end
 
     def self.find(id)
       results = Careerbuilder::Utils::Request.get({job_id: id})
 
-      if results[:jobs_count] && results[:jobs_count] > 0
-        job = Careerbuilder::Job.new
-        job.data = results[:jobs][0]
+      unless results[:error]
+        if results[:jobs_count] && results[:jobs_count] > 0
+          job = Careerbuilder::Job.new
+          job.data = results[:jobs][0]
+        else
+          job = nil
+        end
       else
+        puts results[:error]
         job = nil
       end
       job

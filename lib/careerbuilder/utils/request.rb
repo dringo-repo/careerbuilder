@@ -13,7 +13,11 @@ module Careerbuilder
         response = HTTParty.get(base_url + query)
 
         # parse data
-        data = JSON.parse(response.body, {symbolize_names: true})
+        begin
+          data = JSON.parse(response.body, {symbolize_names: true})
+        rescue JSON::ParserError
+          data = {error: "Careerbuilder Error"}
+        end
       end
     end
   end
